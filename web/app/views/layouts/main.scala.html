@@ -1,0 +1,59 @@
+@import play.api.Environment
+
+@(content: Html)(implicit webJarAssets: WebJarAssets,
+        environment: Environment,
+        info: Map[String, String])
+
+<!DOCTYPE html><!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]--><!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]--><!--[if !IE]><!-->
+<html lang="en">
+        <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>@info.getOrElse("projectName", "")</title>
+        <meta name="description" content="">
+        <meta name="author" content=title>
+
+            <!-- Mobile Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.ico")">
+
+        <link rel="stylesheet" href="@routes.Assets.versioned("lib/bootstrap/css/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+
+        <script type="text/javascript">
+            @if(environment.mode == play.api.Mode.Prod || environment.mode == play.api.Mode.Test) {
+                window.isProduction = true;
+            } else {
+                window.isProduction = false;
+            }
+        </script>
+    </head>
+
+    <body>
+        @content
+
+        <script data-main="@routes.Assets.versioned("javascripts/main.js")" type="text/javascript" src="@routes.Assets.versioned("lib/requirejs/require.js")"></script>
+
+        <footer data-ng-cloak class="footer navbar navbar-fixed-bottom navbar-light bg-faded">
+            <div class="container">
+                <p class="text-muted">
+                    <strong>
+                        <a href="https://github.com/AlexanderRay/play-scalajs-orientdb-multiproject-seed/tree/lightbend">
+                            Play-scalajs-orientdb multiproject seed (@info.getOrElse("version", "-")).
+                        </a>
+                    </strong>
+                    Developed by: <a href = "mailto:dev@@alexray.me">Alexander Ray</a>, <a href ="mailto:maksim.budilovskiy@@gmail.com?cc=dev@@alexray.me">Maksim Budilovskiy</a>
+                    <br>
+                    <strong>
+                        Copyright © 2016, Alexander Ray
+                    </strong>
+                </p>
+            </div>
+        </footer>
+    </body>
+
+</html>

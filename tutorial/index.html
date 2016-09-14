@@ -1,0 +1,78 @@
+<html>
+<head>
+    <title>Play ScalaJS OrientDB multiproject bootstrap - Activator Template</title>
+</head>
+<body>
+<div>
+    <h2>Quick Overview</h2>
+    <p>
+        This is a multiproject build that shows how to use
+        <a href="http://www.playframework.com/" target="_blank">Play2</a>,
+        <a href="https://www.scala-js.org/" target="_blank">ScalaJS</a>,
+        <a href="http://orientdb.com/" target="_blank">OrientDB</a>,
+        <a href="http://requirejs.org/" target="_blank">RequireJS</a> and
+        <a href="https://angularjs.org/" target="_blank">AngularJS</a>
+        in order to create a simple single-page application that displays data stored in a database.
+
+        <a href="http://play-scalajs-orientdb-seed.alexray.me/" target="_blank">Here</a> you can find
+        the working example of this seed.
+    </p>
+    <p>
+        Server side of the application is based on Play2 Framework. Play is a high-velocity web framework for Java and
+        Scala. It is based on a lightweight, stateless, web-friendly architecture, and follows MVC patterns and
+        principles. Client side uses AngularJS framework and is written in ScalaJS and native Javascript.
+    </p>
+</div>
+
+<div>
+    <h2>Interaction with OrientDB</h2>
+    <p>
+        OrientDB is a Multi-Model Open Source NoSQL DBMS that combines the power of graphs and the flexibility of
+        documents into one scalable, high-performance operational database. Database interaction tools provided by the
+        <a href="https://github.com/springnz/orientdb-migrations" target="_blank">orientdb-migrations library</a>
+        enables interacting with the database in an asynchronous reactive way.
+    </p>
+    <p>
+        At first step in <i>OnApplicationStart</i> point, located in <i>web</i> module, we create several
+        test records in the database which represents a simple graph with a few nodes and edges between them.
+        Data stucture of the graph is defined in <i>SharedJS</i> module
+    </p>
+</div>
+
+<div>
+    <h2>Communication between back-end and front-end</h2>
+    <p>
+        To transit data from database to front-end application uses
+        <a href="https://github.com/benhutchison/prickle" target="_blank">Prickle</a> library that allows easily
+        pickling (serializing) object graphs between Scala and Scala.js.
+    </p>
+    <p>
+        When the user, at client side, requests data from the database, the application starts an
+        <i>OrientDbService</i> of the <i>ScalaJS</i> module to deserialize data provided and serialized by
+        the server-side <i>DatabaseController.loadGraph()</i> method.
+        <i>DatabaseController</i> uses
+        <a href="https://github.com/springnz/orientdb-migrations" target="_blank">orientdb-migrations</a> library to
+        load data from OrientDB.
+    </p>
+</div>
+
+<div>
+    <h2>Client side</h2>
+    <p>
+        Client side of application is based on AngularJS and Twitter Bootstrap framework. It allows creating controllers
+        both in ScalaJS and native Javascript. In order to visualise a graph represented in Scala classes, the
+        application uses <a href="http://js.cytoscape.org/" target="_blank">Cytoscape.js</a> library
+    </p>
+</div>
+
+<div>
+    <h2>
+        Copyright
+    </h2>
+    <p>
+        Copyright © 2016, Alexander Ray
+        <br>Developed by: <a href="mailto:dev@alexray.me">Alexander Ray</a>, <a href ="mailto:maksim.budilovskiy@@gmail.com?cc=dev@@alexray.me">Maksim Budilovskiy</a>
+    </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+#cy {
+    border: 1px solid gray;
+    width: 70%;
+    height: 400px;
+    display: block;
+    margin: auto;
+}
+
+.btn {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.alert {
+    margin-bottom: 5px;
+}
+
+.footer {
+    background-color: #f5f5f5;
+}

@@ -1,0 +1,10 @@
+/test
+/RUNNING_PID
+/project/*-shim.sbt
+web/logs/
+project/project/
+project/target/
+target/
+.idea/
+logs/
+/node_modules/

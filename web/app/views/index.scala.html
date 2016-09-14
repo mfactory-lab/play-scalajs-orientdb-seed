@@ -1,0 +1,41 @@
+@import play.api.Environment
+
+@(message: String)(implicit webJarAssets: WebJarAssets,
+        environment: Environment,
+        info: Map[String, String])
+
+@layouts.main {
+
+    <div class="alert alert-success fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        Message from Play controller: <strong>" @message"</strong>
+    </div>
+
+    <div data-ng-controller="VisualizeGraphController" >
+
+        <div data-ng-hide="message != ''" class="alert alert-danger fade in">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Initializing AngularJS-ScalaJS Application
+        </div>
+
+        <div data-ng-cloak class="alert alert-info fade in">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Message from AngularJS controller implemented in ScalaJS: <strong> {{ message }}</strong>
+        </div>
+
+        <div data-ng-controller="cytoscapeController" data-ng-cloak>
+
+            <button type="button" data-ng-disabled = " graphLoaded " name="loadGraphBtn"
+                    class="btn btn-primary" data-ng-click=" drawGraph() ">
+                Load graph
+            </button>
+
+            <br>
+
+            <div id="cy" data-ng-show = " graphLoaded "></div>
+
+        </div>
+
+    </div>
+
+}
